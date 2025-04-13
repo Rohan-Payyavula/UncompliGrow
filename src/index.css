@@ -1,0 +1,148 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 30% 96%;
+    --foreground: 120 10% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 10% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 10% 20%;
+
+    --primary: 142 72% 29%;
+    --primary-foreground: 120 10% 98%;
+
+    --secondary: 35 100% 88%;
+    --secondary-foreground: 26 83% 14%;
+
+    --muted: 120 10% 96%;
+    --muted-foreground: 120 7% 40%;
+
+    --accent: 28 72% 83%;
+    --accent-foreground: 26 83% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 120 10% 98%;
+
+    --border: 120 5% 88%;
+    --input: 120 5% 88%;
+    --ring: 142 72% 29%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 142 30% 96%;
+    --sidebar-foreground: 120 10% 20%;
+    --sidebar-primary: 142 72% 29%;
+    --sidebar-primary-foreground: 120 10% 98%;
+    --sidebar-accent: 28 72% 83%;
+    --sidebar-accent-foreground: 26 83% 25%;
+    --sidebar-border: 120 5% 88%;
+    --sidebar-ring: 142 72% 29%;
+  }
+
+  .dark {
+    --background: 120 10% 10%;
+    --foreground: 120 7% 88%;
+
+    --card: 120 10% 12%;
+    --card-foreground: 120 7% 88%;
+
+    --popover: 120 10% 12%;
+    --popover-foreground: 120 7% 88%;
+
+    --primary: 142 50% 40%;
+    --primary-foreground: 120 10% 98%;
+
+    --secondary: 35 50% 20%;
+    --secondary-foreground: 35 100% 88%;
+
+    --muted: 120 10% 20%;
+    --muted-foreground: 120 7% 60%;
+
+    --accent: 28 50% 30%;
+    --accent-foreground: 28 72% 83%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 120 10% 98%;
+
+    --border: 120 10% 20%;
+    --input: 120 10% 20%;
+    --ring: 142 50% 40%;
+
+    --sidebar-background: 120 10% 12%;
+    --sidebar-foreground: 120 7% 88%;
+    --sidebar-primary: 142 50% 40%;
+    --sidebar-primary-foreground: 120 10% 98%;
+    --sidebar-accent: 28 50% 30%;
+    --sidebar-accent-foreground: 28 72% 83%;
+    --sidebar-border: 120 10% 20%;
+    --sidebar-ring: 142 50% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom styles for the tree components */
+  .trunk {
+    @apply bg-uproot-trunk relative;
+    position: relative;
+  }
+
+  .trunk::after {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-full bg-uproot-trunkDark opacity-30;
+    clip-path: polygon(0 0, 40% 0, 20% 100%, 0% 100%);
+  }
+
+  .branch {
+    @apply bg-uproot-branch relative;
+    position: relative;
+  }
+
+  .branch::after {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-full bg-uproot-branchDark opacity-30;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 30%);
+  }
+
+  .leaf {
+    @apply bg-uproot-leaf rounded-full shadow-sm;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .root {
+    @apply bg-uproot-root relative;
+    position: relative;
+  }
+
+  .root::after {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-full bg-uproot-rootDark opacity-30;
+    clip-path: polygon(0 0, 60% 0, 80% 100%, 20% 100%);
+  }
+
+  .soil {
+    @apply bg-uproot-soil rounded-t-full;
+  }
+}
+
+@keyframes appear {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-appear {
+  animation: appear 0.5s ease-out;
+}
